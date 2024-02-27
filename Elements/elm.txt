@@ -1,0 +1,55 @@
+e fire d
+e water d
+e earth d
+e air d
+
+e steam
+e lava
+e ash
+e mud
+e mist
+e sand
+e heat
+e ice
+e ground
+e wind
+
+e geode
+e glass
+e quartz
+e rock
+e obsidian
+e storm
+e sandstorm
+e glacier
+e clay
+e plains
+e magma
+e river
+
+r fire water steam
+r fire earth lava
+r fire air ash
+r water earth mud
+r water air mist
+r earth air sand
+r fire fire heat
+r water water ice
+r earth earth ground
+r air air wind
+r steam lava geode
+r sand heat glass
+r sand fire glass
+r lava ice obsidian
+r lava water rock
+r fire ice water
+r wind sand sandstorm
+r wind wind storm
+r storm sand sandstorm
+r ice ground glacier
+r mud mud clay
+r wind ground plains
+r heat rock magma
+r magma water quartz
+r lava rock lava
+r water ground river
