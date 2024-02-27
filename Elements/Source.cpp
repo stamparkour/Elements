@@ -3,6 +3,8 @@
 struct Element {
 	const char* name;
 	bool discovered;
+	bool isCombined;
+	bool isOutput;
 };
 
 struct Recipe {
@@ -66,11 +68,48 @@ void ParseFile(std::fstream& file) {
 			int a = getElementIndex(buffer2);
 			int b = getElementIndex(buffer3);
 			int o = getElementIndex(buffer4);
-			if (a == -1 || b == -1 || o == -1) 
+			if (a == -1) {
+				printf(buffer2);
 				throw 2;
+			}
+			if (b == -1) {
+				printf(buffer3);
+				throw 2;
+			}
+			if (o == -1) {
+				printf(buffer4);
+				throw 2;
+			}
+			elements[a].isCombined = true;
+			elements[b].isCombined = true;
+			elements[o].isOutput = true;
 			if (getRecipe(a, b) != -1) 
 				throw 3;
 			recipes.push_back({ a, b, o });
+		}
+		else if (buffer1[0] == 'o') {
+			printf("not output: \r\n");
+			for (int i = 0; i < elements.size(); i++) {
+				if (!elements[i].isOutput && !elements[i].discovered) printf("%s\r\n", elements[i].name);
+			}
+			printf("\r\n");
+		}
+		else if (buffer1[0] == 'c') {
+			printf("not combined: \r\n");
+			for (int i = 0; i < elements.size(); i++) {
+				if (!elements[i].isCombined) printf("%s\r\n", elements[i].name);
+			}
+			printf("\r\n");
+		}
+		else if (buffer1[0] == 'v') {
+			printf("sample unused recipes: \r\n");
+			for (int i = 0; i < elements.size(); i++) {
+				for (int j = i; j < elements.size(); j++) {
+					if (((float)rand() / RAND_MAX) > 0.02) continue;
+					if (getRecipe(i, j) == -1) printf("%s %s\r\n", elements[i].name, elements[j].name);
+				}
+			}
+			printf("\r\n");
 		}
 		else {
 			throw 1;

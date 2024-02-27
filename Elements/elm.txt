@@ -26,6 +26,13 @@ e clay
 e plains
 e magma
 e river
+e hell
+e erosion
+e permafrost
+e canyon
+e cloud
+e soil
+e blizzard
 
 r fire water steam
 r fire earth lava
@@ -53,3 +60,18 @@ r heat rock magma
 r magma water quartz
 r lava rock lava
 r water ground river
+r heat glass magma
+r fire glass magma
+r fire plains hell
+r fire magma magma
+r mud glacier erosion
+r earth ice permafrost
+r river erosion canyon
+r steam air cloud
+r ash earth soil
+r permafrost storm blizzard
+r wind quartz sand
+
+o
+c
+v
